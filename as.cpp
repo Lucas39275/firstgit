@@ -8,20 +8,29 @@ typedef pair<ll, ll> Pair;
 
 long long minn = 1e15; // 最小値を求めるための値
 
+int fact(int n)
+{
+    if (n == 0)
+        return 1;
+    else
+        return n * fact(n - 1);
+}
+
+int combination(int n, int r)
+{
+    return fact(n) / (fact(r) * fact(n - r));
+}
 int main()
 {
 
-    long long n;
-    cin >> n;
+    int n, r;
 
-    for (long long i = 1; i * i <= n; i++) //約数列挙
-    {
-        if (n % i == 0)
-        {
-            long long a = i + n / i - 2;
-            minn = min(minn, a);
-        }
-    }
-    int aa = 0;
-    cout << minn << endl;
+    printf("n:");
+    scanf("%d", &n);
+    printf("r:");
+    scanf("%d", &r);
+
+    printf("%d C %d = %d\n", n, r, combination(n, r));
+
+    return 0;
 }
