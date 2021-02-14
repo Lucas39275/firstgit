@@ -1,12 +1,32 @@
-#include <stdio.h>
+#include <bits/stdc++.h>
+
+using namespace std;
+using ll = long long;
+const long long INF = 1LL << 60;
+
+typedef pair<ll, ll> Pair;
 
 int main()
 {
-    int a = 3;
-    for (int i = 0; i < 5; i++)
-    {
-        printf("Hello");
-        }
+    double a, b, h, m;
 
-    return 0;
+    cin >> a >> b >> h >> m;
+
+    double c = 30 * h;
+    double d = 6 * m;
+    double e;
+    if (c > d)
+    {
+        e = c - d;
+    }
+    else if (d > c)
+    {
+        e = d - c;
+    }
+    if (e > 180)
+    {
+        e = abs(e - 180);
+    }
+    double f = sqrt(pow(a, 2) + pow(b, 2) - 2 * a * b * cos(e));
+    cout << f << endl;
 }
